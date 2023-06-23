@@ -19,11 +19,7 @@ namespace AirportSample.Controllers
         // GET: airportinfoes
         public ActionResult Index()
         {
-            var cityList = db.cityinfoes.ToList();
-            ViewBag.CityList1 = new SelectList(cityList, "CITY", "CITY");
-
-
-            ViewBag.CityList2 = new SelectList(cityList, "CITY", "CITY");
+            
             return View();
         }
 
@@ -44,44 +40,46 @@ namespace AirportSample.Controllers
         public  ActionResult Create(FormCollection form)
         {
            
-            var cityList = db.cityinfoes.ToList();
-            string From = form["CityList1"].ToString();
-            cityinfo city1 = cityList.Find(m => m.CITY == From);
+                var cityList = db.cityinfoes.ToList();
+                string From = form["CityList1"].ToString();
+                cityinfo city1 = cityList.Find(m => m.CITY == From);
 
-            double lat = Convert.ToDouble(city1.LAT);
-            double slong = Convert.ToDouble(city1.LONG);
-            var startlocation = new Location(lat, slong);
-            string To = form["CityList2"].ToString();
-            cityinfo city2 = cityList.Find(m => m.CITY == To);
-            double dlat = Convert.ToDouble(city2.LAT);
-            double dlong = Convert.ToDouble(city2.LONG);
-            var destinationlocation = new Location(dlat,dlong);
-
-
-            var airportsInRange = new List<airportinfo>();
-
-            var airports = db.airportinfoes.ToList();
+                double lat = Convert.ToDouble(city1.LAT);
+                double slong = Convert.ToDouble(city1.LONG);
+                var startlocation = new Location(lat, slong);
+                string To = form["CityList2"].ToString();
+                cityinfo city2 = cityList.Find(m => m.CITY == To);
+                double dlat = Convert.ToDouble(city2.LAT);
+                double dlong = Convert.ToDouble(city2.LONG);
+                var destinationlocation = new Location(dlat, dlong);
 
 
-            var maxDistance = HaversineDistance(startlocation, destinationlocation)+50;
-            foreach (var airport in airports)
-            {
-                
-                var airportLocation = new Location(airport.LAT, airport.LONG);
-                var distance = CalculateDistance(startlocation, destinationlocation, airportLocation);
+                var airportsInRange = new List<airportinfo>();
 
-                if (distance <= maxDistance)
-                    airportsInRange.Add(airport);
-            }
+                var airports = db.airportinfoes.ToList();
 
 
-            return View(airportsInRange);
+                var maxDistance = HaversineDistance(startlocation, destinationlocation) + 50;
+                foreach (var airport in airports)
+                {
+
+                    var airportLocation = new Location(airport.LAT, airport.LONG);
+                    var distance = CalculateDistance(startlocation, destinationlocation, airportLocation);
+
+                    if (distance <= maxDistance)
+                        airportsInRange.Add(airport);
+                }
 
 
-
-
+                return PartialView("_AirportsPartial", airportsInRange);
             
-            }
+            
+
+
+
+
+
+        }
 
            
         

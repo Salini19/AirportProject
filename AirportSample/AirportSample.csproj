@@ -225,6 +225,7 @@
     <Content Include="Views\cityinfoes\Index.cshtml" />
     <Content Include="Views\Airport\Index.cshtml" />
     <Content Include="Views\Airport\_AirportsPartial.cshtml" />
+    <Content Include="Views\airportinfoes\_AirportsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
