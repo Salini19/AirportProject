@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Services.Description;
 using AirportSample.Models;
-using static AirportSample.Controllers.AirportController;
 
 namespace AirportSample.Controllers
 {
@@ -86,38 +85,7 @@ namespace AirportSample.Controllers
 
 
 
-    //[HttpPost]
-    //public ActionResult Search(double startLatitude, double startLongitude, double destinationLatitude, double destinationLongitude)
-    //{
-    //    var airportFinder = new AirportFinder();
-    //    var airports = airportFinder.FindAirportsBetweenCities(startLatitude, startLongitude, destinationLatitude, destinationLongitude);
-
-    //    return PartialView("_AirportsPartial", airports);
-    //}
-
-
     
-       
-
-        //public List<airportinfo> FindAirportsBetweenCities(double startLatitude, double startLongitude, double destinationLatitude, double destinationLongitude)
-        //{
-        //    var startLocation = new Location(startLatitude, startLongitude);
-        //    var destinationLocation = new Location(destinationLatitude, destinationLongitude);
-
-        //    var airportsInRange = new List<airportinfo>();
-
-        //    var maxDistance = HaversineDistance(startLocation, destinationLocation);
-        //    foreach (var airport in airports)
-        //    {
-        //        var airportLocation = new Location(airport.LAT, airport.LONG);
-        //        var distance = CalculateDistance(startLocation, destinationLocation, airportLocation);
-
-        //        if (distance <= maxDistance)
-        //            airportsInRange.Add(airport);
-        //    }
-
-        //    return airportsInRange;
-        //}
 
         public double CalculateDistance(Location startLocation, Location destinationLocation, Location airportLocation)
         {
@@ -188,121 +156,4 @@ namespace AirportSample.Controllers
 
 
 
-    // GET: airportinfoes/Details/5
-//    public ActionResult Details(string id)
-//        {
-//            if (id == null)
-//            {
-//                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-//            }
-//            airportinfo airportinfo = db.airportinfoes.Find(id);
-//            if (airportinfo == null)
-//            {
-//                return HttpNotFound();
-//            }
-//            return View(airportinfo);
-//        }
-
-//        // GET: airportinfoes/Create
-//        public ActionResult Create()
-//        {
-//            return View();
-//        }
-
-//        // POST: airportinfoes/Create
-//        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-//        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-//        //[HttpPost]
-//        //[ValidateAntiForgeryToken]
-//        //public ActionResult Create([Bind(Include = "IATACODE,AIRPORTNAME,CITY,STATE,COUNTRY,LAT,LONG")] airportinfo airportinfo)
-//        //{
-//        //    if (ModelState.IsValid)
-//        //    {
-//        //        db.airportinfoes.Add(airportinfo);
-//        //        db.SaveChanges();
-//        //        return RedirectToAction("Index");
-//        //    }
-
-//        //    return View(airportinfo);
-//        //}
-       
-
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult Create(FormCollection FormCollection)
-//        {
-//            List<airportinfo> airportinfoList = new List<airportinfo>();
-//            string From = FormCollection["From"].ToString();
-//            string To = FormCollection["To"].ToString();
-
-//            List<airportinfo> air = airportinfoList.FindAll(x => x.CITY == From && x.CITY==To);
-
-//            return View();
-//        }
-//        // GET: airportinfoes/Edit/5
-//        public ActionResult Edit(string id)
-//        {
-//            if (id == null)
-//            {
-//                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-//            }
-//            airportinfo airportinfo = db.airportinfoes.Find(id);
-//            if (airportinfo == null)
-//            {
-//                return HttpNotFound();
-//            }
-//            return View(airportinfo);
-//        }
-
-//        // POST: airportinfoes/Edit/5
-//        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-//        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult Edit([Bind(Include = "IATACODE,AIRPORTNAME,CITY,STATE,COUNTRY,LAT,LONG")] airportinfo airportinfo)
-//        {
-//            if (ModelState.IsValid)
-//            {
-//                db.Entry(airportinfo).State = EntityState.Modified;
-//                db.SaveChanges();
-//                return RedirectToAction("Index");
-//            }
-//            return View(airportinfo);
-//        }
-
-//        // GET: airportinfoes/Delete/5
-//        public ActionResult Delete(string id)
-//        {
-//            if (id == null)
-//            {
-//                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-//            }
-//            airportinfo airportinfo = db.airportinfoes.Find(id);
-//            if (airportinfo == null)
-//            {
-//                return HttpNotFound();
-//            }
-//            return View(airportinfo);
-//        }
-
-//        // POST: airportinfoes/Delete/5
-//        [HttpPost, ActionName("Delete")]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult DeleteConfirmed(string id)
-//        {
-//            airportinfo airportinfo = db.airportinfoes.Find(id);
-//            db.airportinfoes.Remove(airportinfo);
-//            db.SaveChanges();
-//            return RedirectToAction("Index");
-//        }
-
-//        protected override void Dispose(bool disposing)
-//        {
-//            if (disposing)
-//            {
-//                db.Dispose();
-//            }
-//            base.Dispose(disposing);
-//        }
-//    }
-//}
+   
