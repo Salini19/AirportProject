@@ -1,0 +1,23 @@
+﻿@model AirportSample.Models.cityinfo
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+Source:
+
+@Html.DropDownList("CityList1", ViewBag.CityList1 as SelectList, "Search here")
+
+Destination:
+
+@Html.DropDownList("CityList2", ViewBag.CityList2 as SelectList, "Search here")
+<p>
+
+
+
+    @Html.ActionLink("Submit", "Edit")
+</p>
