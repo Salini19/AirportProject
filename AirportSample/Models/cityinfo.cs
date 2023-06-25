@@ -21,8 +21,8 @@ namespace AirportSample.Models
         }
     
         public string CITY { get; set; }
-        public Nullable<double> LAT { get; set; }
-        public string LONG { get; set; }
+        public double LAT { get; set; }
+        public double LONG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<airportinfo> airportinfoes { get; set; }

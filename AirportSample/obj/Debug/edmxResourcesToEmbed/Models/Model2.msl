@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AirportDBModel1StoreContainer" CdmEntityContainer="AirportDBEntities">
+    <EntitySetMapping Name="airportinfoes">
+      <EntityTypeMapping TypeName="AirportDBModel1.airportinfo">
+        <MappingFragment StoreEntitySet="airportinfo">
+          <ScalarProperty Name="IATACODE" ColumnName="IATACODE" />
+          <ScalarProperty Name="AIRPORTNAME" ColumnName="AIRPORTNAME" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="LAT" ColumnName="LAT" />
+          <ScalarProperty Name="LONG" ColumnName="LONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cityinfoes">
+      <EntityTypeMapping TypeName="AirportDBModel1.cityinfo">
+        <MappingFragment StoreEntitySet="cityinfo">
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="LAT" ColumnName="LAT" />
+          <ScalarProperty Name="LONG" ColumnName="LONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

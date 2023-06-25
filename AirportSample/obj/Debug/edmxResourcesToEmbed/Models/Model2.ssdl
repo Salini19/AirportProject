@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AirportDBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="airportinfo">
+    <Key>
+      <PropertyRef Name="IATACODE" />
+    </Key>
+    <Property Name="IATACODE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AIRPORTNAME" Type="varchar" MaxLength="200" />
+    <Property Name="CITY" Type="varchar" MaxLength="50" />
+    <Property Name="STATE" Type="varchar" MaxLength="50" />
+    <Property Name="COUNTRY" Type="varchar" MaxLength="50" />
+    <Property Name="LAT" Type="float" />
+    <Property Name="LONG" Type="float" />
+  </EntityType>
+  <EntityType Name="cityinfo">
+    <Key>
+      <PropertyRef Name="CITY" />
+    </Key>
+    <Property Name="CITY" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LAT" Type="float" />
+    <Property Name="LONG" Type="float" />
+  </EntityType>
+  <Association Name="FK__airportinf__CITY__71D1E811">
+    <End Role="cityinfo" Type="Self.cityinfo" Multiplicity="0..1" />
+    <End Role="airportinfo" Type="Self.airportinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cityinfo">
+        <PropertyRef Name="CITY" />
+      </Principal>
+      <Dependent Role="airportinfo">
+        <PropertyRef Name="CITY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AirportDBModel1StoreContainer">
+    <EntitySet Name="airportinfo" EntityType="Self.airportinfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cityinfo" EntityType="Self.cityinfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__airportinf__CITY__71D1E811" Association="Self.FK__airportinf__CITY__71D1E811">
+      <End Role="cityinfo" EntitySet="cityinfo" />
+      <End Role="airportinfo" EntitySet="airportinfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

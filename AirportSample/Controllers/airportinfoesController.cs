@@ -13,7 +13,7 @@ namespace AirportSample.Controllers
 {
     public class airportinfoesController : Controller
     {
-        public AirportDBEntities3 db = new AirportDBEntities3();
+        public AirportDBEntities db = new AirportDBEntities();
 
         // GET: airportinfoes
         public ActionResult Index()
@@ -40,17 +40,14 @@ namespace AirportSample.Controllers
         {
            
                 var cityList = db.cityinfoes.ToList();
+
                 string From = form["CityList1"].ToString();
                 cityinfo city1 = cityList.Find(m => m.CITY == From);
-
-                double lat = Convert.ToDouble(city1.LAT);
-                double slong = Convert.ToDouble(city1.LONG);
-                var startlocation = new Location(lat, slong);
+                var startlocation = new Location(city1.LAT,city1.LONG);
                 string To = form["CityList2"].ToString();
                 cityinfo city2 = cityList.Find(m => m.CITY == To);
-                double dlat = Convert.ToDouble(city2.LAT);
-                double dlong = Convert.ToDouble(city2.LONG);
-                var destinationlocation = new Location(dlat, dlong);
+
+                var destinationlocation = new Location(city2.LAT,city2.LONG);
 
 
                 var airportsInRange = new List<airportinfo>();
@@ -68,24 +65,8 @@ namespace AirportSample.Controllers
                     if (distance <= maxDistance)
                         airportsInRange.Add(airport);
                 }
-
-
                 return PartialView("_AirportsPartial", airportsInRange);
-            
-            
-
-
-
-
-
         }
-
-           
-        
-
-
-
-    
 
         public double CalculateDistance(Location startLocation, Location destinationLocation, Location airportLocation)
         {
