@@ -1,49 +1,56 @@
 ﻿@model IEnumerable<AirportSample.Models.airportinfo>
 
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IATACODE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AIRPORTNAME)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CITY)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.STATE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.COUNTRY)
-        </th>
-
-
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IATACODE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AIRPORTNAME)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CITY)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.STATE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.COUNTRY)
-        </td>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<div class ="container">
+    <table class="table-bordered">
+        <tr>
+            <th>
+                <center>
+                    @Html.DisplayNameFor(model => model.IATACODE)
+                </center>
+            </th>
+            <th>
+                <center>
+                    @Html.DisplayNameFor(model => model.AIRPORTNAME)
+                </center>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CITY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COUNTRY)
+            </th>
 
 
+            <th></th>
+        </tr>
 
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IATACODE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AIRPORTNAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CITY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COUNTRY)
+                </td>
 
-</table>
+
+
+            </tr>
+        }
+
+    </table>
+</div>
