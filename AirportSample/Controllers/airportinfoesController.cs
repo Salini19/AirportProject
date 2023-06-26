@@ -65,7 +65,7 @@ namespace AirportSample.Controllers
                     if (distance <= maxDistance)
                         airportsInRange.Add(airport);
                 }
-                return PartialView("_AirportsPartial", airportsInRange);
+                return View("AirportDisplay", airportsInRange);
         }
 
         public double CalculateDistance(Location startLocation, Location destinationLocation, Location airportLocation)
