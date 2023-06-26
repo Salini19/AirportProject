@@ -167,6 +167,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\about.png" />
     <Content Include="images\airline.png" />
     <Content Include="images\front photo.png" />
     <Content Include="Models\Model2.Context.tt">
