@@ -55,7 +55,7 @@ namespace AirportSample.Controllers
                 var airports = db.airportinfoes.ToList();
 
 
-                var maxDistance = HaversineDistance(startlocation, destinationlocation) + 50;
+            var maxDistance = HaversineDistance(startlocation, destinationlocation) + 50 ;
                 foreach (var airport in airports)
                 {
 
@@ -101,7 +101,10 @@ namespace AirportSample.Controllers
 
             return degrees * (Math.PI / 180);
         }
-
+        public ActionResult frontpage()
+        {
+            return View();
+        }
 
     }
 

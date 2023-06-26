@@ -64,7 +64,8 @@ dfn {
   font-style: italic;
 }
 h1 {
-  font-size: 2em;
+    font-family:'Times New Roman', Times, serif;
+  font-size: 10em;
   margin: 0.67em 0;
 }
 mark {
